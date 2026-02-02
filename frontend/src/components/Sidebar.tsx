@@ -6,7 +6,7 @@ export function Sidebar() {
         <aside className="w-64 bg-[#0a0a0a] border-r border-[#222] flex flex-col h-screen fixed left-0 top-0 z-50">
             <div className="p-6">
                 <div className="flex items-center gap-3 mb-8">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-green-400 to-emerald-600"></div>
+                    <img src="/logo.png" alt="ImpactWatch Logo" className="w-12 h-12 object-contain" />
                     <span className="font-bold text-lg text-white tracking-tight">ImpactWatch</span>
                 </div>
 
@@ -20,7 +20,6 @@ export function Sidebar() {
             </div>
 
             <div className="flex-1 overflow-y-auto px-4 py-2">
-                {/* History section removed as per user request */}
             </div>
 
             <div className="p-4 border-t border-[#222]">

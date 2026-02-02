@@ -22,11 +22,10 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
     const [copied, setCopied] = useState(false);
     const confidencePercent = (data.confidence * 100).toFixed(1);
 
-    // Prepare chart data
     const chartData = [
         { name: "Confidence", score: data.confidence * 100, color: "#10b981" }, // Green
-        { name: "Bias", score: 45, color: "#6366f1" }, // Indigo
-        { name: "Impact", score: 72, color: "#f59e0b" } // Amber
+        { name: "Bias", score: 45, color: "#6366f1" }, 
+        { name: "Impact", score: 72, color: "#f59e0b" }
     ];
 
     const handleCopy = async () => {
@@ -42,10 +41,8 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
 
     return (
         <div className="animate-fade-in w-full max-w-4xl mx-auto space-y-4">
-            {/* Cards Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                {/* Main Sentiment Card */}
                 <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-green-500/30 transition-all">
                     <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative">
@@ -60,7 +57,6 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
                     </div>
                 </div>
 
-                {/* Model Agreement Card */}
                 <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-purple-500/30 transition-all">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative">
@@ -80,7 +76,6 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
                     </div>
                 </div>
 
-                {/* Quick Stats / Warning */}
                 <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-amber-500/30 transition-all">
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative h-full flex flex-col justify-between">
@@ -94,7 +89,6 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
                 </div>
             </div>
 
-            {/* Chart Section */}
             <div className="bg-[#1a1a1a] p-6 rounded-2xl border border-[#333]">
                 <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-6">Real-Time Visualization</h3>
                 <div className="h-56 w-full">
@@ -129,7 +123,6 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
                 </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex gap-2">
                 <button
                     onClick={handleCopy}
