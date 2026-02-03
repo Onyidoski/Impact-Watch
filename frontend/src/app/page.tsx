@@ -97,14 +97,13 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/analyze", {
+      const response = await fetch("https://impact-watch.onrender.com/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: textToAnalyze }),
       });
       const data = await response.json();
 
-      // Add Assistant Message with the original prompt stored
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: data,
