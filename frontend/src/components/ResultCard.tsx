@@ -24,7 +24,7 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
 
     const chartData = [
         { name: "Confidence", score: data.confidence * 100, color: "#10b981" }, // Green
-        { name: "Bias", score: 45, color: "#6366f1" }, 
+        { name: "Bias", score: 45, color: "#6366f1" },
         { name: "Impact", score: 72, color: "#f59e0b" }
     ];
 
@@ -40,76 +40,77 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
     };
 
     return (
-        <div className="animate-fade-in w-full max-w-4xl mx-auto space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="animate-fade-in w-full max-w-4xl mx-auto space-y-3 sm:space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
 
-                <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-green-500/30 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="group relative bg-[#1a1a1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-[#333] hover:border-green-500/30 transition-all">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative">
-                        <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <h3 className="text-gray-500 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3 flex items-center gap-2">
                             <Activity className="w-3 h-3" /> Classification
                         </h3>
-                        <div className="text-2xl font-bold text-white mb-1">{data.sentiment}</div>
-                        <div className="flex items-center gap-2 text-sm text-green-400">
-                            <CheckCircle className="w-4 h-4" />
+                        <div className="text-xl sm:text-2xl font-bold text-white mb-1">{data.sentiment}</div>
+                        <div className="flex items-center gap-2 text-xs sm:text-sm text-green-400">
+                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>{confidencePercent}% Confidence</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-purple-500/30 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="group relative bg-[#1a1a1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-[#333] hover:border-purple-500/30 transition-all">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative">
-                        <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <h3 className="text-gray-500 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3 flex items-center gap-2">
                             <TrendingUp className="w-3 h-3" /> Model Check
                         </h3>
-                        <div className="space-y-2">
-                            <div className="flex justify-between items-center bg-[#111] p-2 rounded-lg text-sm border border-[#222]">
+                        <div className="space-y-1.5 sm:space-y-2">
+                            <div className="flex justify-between items-center bg-[#111] p-1.5 sm:p-2 rounded-lg text-xs sm:text-sm border border-[#222]">
                                 <span className="text-gray-400">Naive Bayes</span>
-                                <span className="text-white font-mono">{data.model_comparison.naive_bayes}</span>
+                                <span className="text-white font-mono text-xs sm:text-sm">{data.model_comparison.naive_bayes}</span>
                             </div>
-                            <div className="flex justify-between items-center bg-[#111] p-2 rounded-lg text-sm border border-[#222]">
+                            <div className="flex justify-between items-center bg-[#111] p-1.5 sm:p-2 rounded-lg text-xs sm:text-sm border border-[#222]">
                                 <span className="text-gray-400">Logistic Reg</span>
-                                <span className="text-white font-mono">{data.model_comparison.logistic_regression}</span>
+                                <span className="text-white font-mono text-xs sm:text-sm">{data.model_comparison.logistic_regression}</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="group relative bg-[#1a1a1a] p-5 rounded-2xl border border-[#333] hover:border-amber-500/30 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="group relative bg-[#1a1a1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-[#333] hover:border-amber-500/30 transition-all sm:col-span-2 lg:col-span-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="relative h-full flex flex-col justify-between">
-                        <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <h3 className="text-gray-500 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
                             <AlertTriangle className="w-3 h-3" /> Analysis Note
                         </h3>
-                        <p className="text-sm text-gray-400 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                             Results are based on synthetic training data. Bias detected in <span className="text-white font-medium">45%</span> of similar samples.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-[#1a1a1a] p-6 rounded-2xl border border-[#333]">
-                <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-6">Real-Time Visualization</h3>
-                <div className="h-56 w-full">
+            <div className="bg-[#1a1a1a] p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#333]">
+                <h3 className="text-gray-500 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-6">Real-Time Visualization</h3>
+                <div className="h-40 sm:h-48 md:h-56 w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={chartData} barSize={40}>
+                        <BarChart data={chartData} barSize={30}>
                             <XAxis
                                 dataKey="name"
                                 stroke="#444"
-                                fontSize={12}
+                                fontSize={10}
                                 tickLine={false}
                                 axisLine={false}
                             />
                             <YAxis
                                 stroke="#444"
-                                fontSize={12}
+                                fontSize={10}
                                 tickLine={false}
                                 axisLine={false}
                                 tickFormatter={(value) => `${value}`}
+                                width={30}
                             />
                             <Tooltip
-                                contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
+                                contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px', fontSize: '12px' }}
                                 itemStyle={{ color: '#e5e7eb' }}
                                 cursor={{ fill: '#ffffff10' }}
                             />
@@ -123,19 +124,19 @@ export function ResultCard({ data, onRegenerate }: ResultCardProps) {
                 </div>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
                 <button
                     onClick={handleCopy}
-                    className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg text-sm text-gray-400 hover:text-white hover:border-gray-500 transition-all"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg text-xs sm:text-sm text-gray-400 hover:text-white hover:border-gray-500 transition-all"
                 >
-                    {copied ? <CheckCircle className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                    {copied ? <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" /> : <Copy className="w-3 h-3 sm:w-4 sm:h-4" />}
                     {copied ? "Copied!" : "Copy Results"}
                 </button>
                 <button
                     onClick={onRegenerate}
-                    className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg text-sm text-gray-400 hover:text-white hover:border-gray-500 transition-all"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg text-xs sm:text-sm text-gray-400 hover:text-white hover:border-gray-500 transition-all"
                 >
-                    <RotateCw className="w-4 h-4" /> Regenerate
+                    <RotateCw className="w-3 h-3 sm:w-4 sm:h-4" /> Regenerate
                 </button>
             </div>
         </div>
