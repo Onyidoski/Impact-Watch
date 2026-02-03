@@ -117,7 +117,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0f0f0f] text-gray-100 font-sans selection:bg-green-500/30">
+    <div className="flex min-h-screen w-full bg-[#0f0f0f] text-gray-100 font-sans selection:bg-green-500/30 overflow-x-hidden">
       <Sidebar
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
@@ -128,7 +128,7 @@ export default function Home() {
         onNewChat={handleNewChat}
       />
 
-      <main className="flex-1 lg:ml-64 relative flex flex-col h-screen overflow-hidden">
+      <main className="flex-1 lg:ml-64 relative flex flex-col h-screen overflow-hidden overflow-x-hidden max-w-full">
         <header className="h-14 sm:h-16 border-b border-[#222] flex items-center justify-between px-4 sm:px-6 md:px-8 bg-[#0f0f0f]/80 backdrop-blur-md z-40 sticky top-0">
           {/* Spacer for mobile hamburger menu */}
           <div className="w-10 lg:hidden"></div>
