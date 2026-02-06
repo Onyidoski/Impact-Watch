@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, loading]);
+  }, [messages]);
 
   // Track previous session ID to detect session switches
   const prevSessionIdRef = useRef<string | null>(null);
