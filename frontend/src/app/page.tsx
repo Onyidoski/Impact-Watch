@@ -97,7 +97,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await fetch("https://impact-watch.onrender.com/analyze", {
+      const response = await fetch("https://impact-watch-production.up.railway.app/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: textToAnalyze }),

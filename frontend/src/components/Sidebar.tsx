@@ -22,7 +22,6 @@ export function Sidebar({
     onDeleteSession,
     onNewChat,
 }: SidebarProps) {
-    // Close sidebar on escape key
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && isOpen) {
@@ -33,7 +32,6 @@ export function Sidebar({
         return () => document.removeEventListener('keydown', handleEscape);
     }, [isOpen, onToggle]);
 
-    // Format timestamp to relative time
     const formatTime = (timestamp: number) => {
         const now = Date.now();
         const diff = now - timestamp;
@@ -50,7 +48,6 @@ export function Sidebar({
 
     return (
         <>
-            {/* Mobile Hamburger Button - Only visible when sidebar is closed */}
             {!isOpen && (
                 <button
                     onClick={onToggle}
@@ -61,7 +58,6 @@ export function Sidebar({
                 </button>
             )}
 
-            {/* Mobile Overlay */}
             {isOpen && (
                 <div
                     className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
@@ -69,7 +65,6 @@ export function Sidebar({
                 />
             )}
 
-            {/* Sidebar */}
             <aside
                 className={`
                     w-64 bg-[#0a0a0a] border-r border-[#222] flex flex-col h-screen fixed left-0 top-0 z-50
@@ -78,7 +73,6 @@ export function Sidebar({
                     lg:translate-x-0
                 `}
             >
-                {/* Header with Logo and Close Button */}
                 <div className="p-6">
                     <div className="flex items-center justify-between mb-8">
                         <div className="flex items-center gap-3">
@@ -86,7 +80,6 @@ export function Sidebar({
                             <span className="font-bold text-lg text-white tracking-tight">ImpactWatch</span>
                         </div>
 
-                        {/* Close Button - Only visible on mobile inside the sidebar */}
                         <button
                             onClick={onToggle}
                             className="lg:hidden p-2 text-gray-400 hover:text-white hover:bg-[#222] rounded-lg transition-all"
@@ -105,7 +98,6 @@ export function Sidebar({
                     </button>
                 </div>
 
-                {/* Chat History */}
                 <div className="flex-1 overflow-y-auto px-3 py-2">
                     {sessions.length > 0 ? (
                         <div className="space-y-1">
